@@ -22,3 +22,38 @@ Improvements_Identified_For_Consolidation:
 - Pattern: validate docker compose early, but expect `.env` dependency if env_file is specified.
 - Workflow: always send `operations` array for Nautex `update_tasks`.
 ---
+
+---
+
+Date: 2026-03-08
+TaskRef: "Nautex T-5 - Initialize Backend Python Project"
+
+Learnings:
+
+- T-5 scope required only initial backend scaffolding and strict dependency pinning in
+  `backend/pyproject.toml`; no runtime modules were required yet beyond package init.
+- Using exact-version pins (`==`) in Poetry dependencies satisfies the "strict version pinning"
+  requirement in early infrastructure tasks.
+- Minimal package bootstrap with `backend/app/__init__.py` is sufficient to establish importable
+  backend package structure for subsequent tasks.
+
+Difficulties:
+
+- First attempt to create `backend/app/__init__.py` failed because the patch used an empty Add
+  block; resolved by adding a minimal comment line to satisfy patch content requirements.
+
+Successes:
+
+- Successfully marked T-5 `In progress` before implementation and `Done` after completion in
+  Nautex, keeping workflow state accurate.
+- Completed all task-scoped files (`backend/pyproject.toml`, `backend/app/__init__.py`) and
+  received next in-focus scope T-6 automatically.
+
+Improvements_Identified_For_Consolidation:
+
+- Tooling pattern: when creating placeholder package files through patch tooling, include at least
+  one non-empty line to avoid Add action failures.
+- Workflow pattern: use Nautex update response's embedded compact next scope to immediately
+  continue without extra polling.
+
+---
