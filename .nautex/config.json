@@ -1,0 +1,7 @@
+{
+  "agent_instance_name": "deck-agent",
+  "project_id": "7pq9HczrdVcEncy5",
+  "plan_id": "hqlrcAUIzaZbFvqb",
+  "agent_type": "cursor",
+  "response_format": "md_yaml"
+}
